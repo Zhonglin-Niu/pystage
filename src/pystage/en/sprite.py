@@ -1847,6 +1847,25 @@ class Sprite:
 
         """
         return self._core.data_addtolist(name, all_sprites=True)
+    
+    def delete_list_variable(self, name, all_sprites=True):
+        """
+
+        Engl. Translation for your reference: ...
+        Engl. Documentation when available...
+
+
+        Parameters
+        ----------
+        name : FILL
+        all_sprites : FILL
+
+
+        Returns
+        -------
+
+        """
+        return self._core.data_deleteoflist(name, all_sprites=True)
 
     def replace_costume(self, index, name, center_x=None, center_y=None, factor=1):
         """

@@ -73,11 +73,17 @@ class _Variables(BaseSprite):
         if not monitor:
             return
         monitor.hide()
-
+    # used for variables like timer, answer and xposition
     def data_showbuiltinvariable(self, name):
         pass
     
     def data_addtolist(self, name, all_sprites=True):
+        pass
+    
+    def data_deleteoflist(self, name, all_sprites=True):
+        pass
+    
+    def data_deletealloflist(self, name, all_sprites=True):
         pass
     
     def pystage_makevariable(self, name, all_sprites=True):
