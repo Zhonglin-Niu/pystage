@@ -362,7 +362,7 @@ def get_python(project, language="core"):
                 ''')
         else:
             res += textwrap.dedent(f'''\
-                    {stage_var}.{add_backdrop}('{bd}', {round(backdrops[bd][0])}, {round(backdrops[bd][1])})
+                    {stage_var}.{add_backdrop}('{bd}', {-round(backdrops[bd][0])}, {round(backdrops[bd][1])})
                     ''')
     for v in project["stage"]["variables"]:
         res += textwrap.dedent(f'''\

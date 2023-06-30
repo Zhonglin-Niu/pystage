@@ -807,7 +807,7 @@ class Stage():
         """
         return self._core.operator_random(start, end)
 
-    def add_backdrop(self, name, center_x=None, center_y=None):
+    def add_backdrop(self, name, left=None, top=None):
         """
 
         Translation string:
@@ -818,15 +818,15 @@ class Stage():
         Parameters
         ----------
         name : FILL
-        center_x : FILL
-        center_y : FILL
+        left : FILL
+        top : FILL
 
 
         Returns
         -------
 
         """
-        return self._core.pystage_addbackdrop(name, center_x, center_y)
+        return self._core.pystage_addbackdrop(name, left, top)
 
     def pystage_addsound(self, name):
         """
