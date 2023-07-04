@@ -108,13 +108,13 @@ class TestList:
         self.sprite1.data_deletealloflist("fruits")
         assert self.stage.data_listvariable("fruits") == []
 
-        self.sprite1.data_insertatlist("fruits", 0, "apple") # no error
-        self.sprite1.data_insertatlist("fruits", -10, "apple") # no error
+        self.sprite1.data_insertatlist("fruits", "apple", 0) # no error
+        self.sprite1.data_insertatlist("fruits", "apple", -10) # no error
         assert self.stage.data_listvariable("fruits") == []
 
-        self.sprite1.data_insertatlist("fruits", 1, "apple")
+        self.sprite1.data_insertatlist("fruits", "apple", 1)
         assert self.stage.data_listvariable("fruits") == ["apple"]
-        self.sprite1.data_insertatlist("fruits", 1, "pear")
+        self.sprite1.data_insertatlist("fruits", "pear", 1)
         assert self.stage.data_listvariable("fruits") == ["pear", "apple"]
 
         self.sprite1.data_replaceitemoflist("fruits", 1, "banana")
