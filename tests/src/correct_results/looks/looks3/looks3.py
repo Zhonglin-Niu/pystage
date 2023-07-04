@@ -3,11 +3,11 @@
 from pystage.en import Sprite, Stage
 
 stage = Stage()
-stage.add_backdrop('backdrop1', 141, 143)
+stage.add_backdrop('backdrop1', -141, 143)
 stage.add_backdrop('blue_sky')
-stage.add_backdrop('random_one', 165, 140)
-stage.add_backdrop('next_backdrop', 139, 81)
-stage.create_variable('my variable')
+stage.add_backdrop('random_one', -165, 140)
+stage.add_backdrop('next_backdrop', -139, 81)
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -33,5 +33,4 @@ def when_program_starts_1(self):
     self.next_backdrop()
 
 sprite1.when_program_starts(when_program_starts_1)
-
 stage.play()

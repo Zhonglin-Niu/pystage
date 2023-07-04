@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(8)
@@ -35,5 +35,4 @@ def when_program_starts_2(self):
         self.go_to_x_y(0.0, 0.0)
 
 sprite1.when_program_starts(when_program_starts_2)
-
 stage.play()

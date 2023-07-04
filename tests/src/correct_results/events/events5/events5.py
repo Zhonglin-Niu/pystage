@@ -4,11 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.show_builtinvariable("sensing_loudness")
-stage.set_monitor_position("sensing_loudness", -224, 137)
-stage.show_builtinvariable("sensing_timer")
-stage.set_monitor_position("sensing_timer", -223, 167)
+stage.create_variable('my variable', 0)
+stage.show_builtinvariable("loudness", -224, 137)
+stage.show_builtinvariable("timer", -223, 167)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -28,5 +26,4 @@ def when_loudness_greater_than_2(self):
     self.say("loudness greater than 1")
 
 sprite1.when_loudness_greater_than(1.0, when_loudness_greater_than_2)
-
 stage.play()

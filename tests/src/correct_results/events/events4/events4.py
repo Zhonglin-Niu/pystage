@@ -5,7 +5,7 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('backdrop1')
 stage.add_backdrop('blue_sky')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -27,5 +27,4 @@ def when_program_starts_2(self):
     self.switch_backdrop_to("blue_sky")
 
 sprite1.when_program_starts(when_program_starts_2)
-
 stage.play()

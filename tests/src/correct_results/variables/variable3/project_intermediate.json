@@ -1,5 +1,71 @@
 {
     "name": "variable3",
+    "stage": {
+        "name": "Stage",
+        "blocks": [],
+        "costumes": [
+            {
+                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
+                "local_name": "backdrop1",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "Num2": "3",
+            "Num1": "3",
+            "Sum": 6,
+            "Year": 8556.637145104167
+        },
+        "lists": {},
+        "monitors": [
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 5,
+                "opcode": "data_variable",
+                "variable": "Num1"
+            },
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 32,
+                "opcode": "data_variable",
+                "variable": "Sum"
+            },
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 59,
+                "opcode": "data_variable",
+                "variable": "Num2"
+            },
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 86,
+                "opcode": "data_variable",
+                "variable": "Year"
+            }
+        ],
+        "currentCostume": 0,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Jouvi Dance",
@@ -311,71 +377,5 @@
             "global_name": "dance_celebrate",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [],
-        "costumes": [
-            {
-                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
-                "local_name": "backdrop1",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "Num2": "3",
-            "Num1": "3",
-            "Sum": 6,
-            "Year": 8556.637145104167
-        },
-        "lists": {},
-        "monitors": [
-            {
-                "style": "default",
-                "x": 5,
-                "y": 5,
-                "opcode": "data_variable",
-                "variable": "Num1"
-            },
-            {
-                "style": "default",
-                "x": 5,
-                "y": 32,
-                "opcode": "data_variable",
-                "variable": "Sum"
-            },
-            {
-                "style": "default",
-                "x": 5,
-                "y": 59,
-                "opcode": "data_variable",
-                "variable": "Num2"
-            },
-            {
-                "style": "default",
-                "x": 5,
-                "y": 86,
-                "opcode": "data_variable",
-                "variable": "Year"
-            }
-        ],
-        "currentCostume": 0,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

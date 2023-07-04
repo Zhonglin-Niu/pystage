@@ -5,10 +5,9 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('backdrop1')
 stage.add_backdrop('jungle')
-stage.create_variable('my variable')
-stage.create_variable('points')
-stage.show_variable("points")
-stage.set_monitor_position("points", -235, 175)
+stage.create_variable('my variable', 44)
+stage.create_variable('points', 0)
+stage.show_variable("points", -235, 175)
 donut = stage.add_a_sprite(None)
 donut.set_name("Donut")
 donut.set_x(146)
@@ -77,5 +76,4 @@ def when_program_starts_4(self):
             self.change_variable_by("points", 1.0)
 
 basketball.when_program_starts(when_program_starts_4)
-
 stage.play()

@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 bear = stage.add_a_sprite(None)
 bear.set_name("Bear")
 bear.set_x(-114)
@@ -22,5 +22,4 @@ def when_program_starts_1(self):
         "NO TRANSLATION: procedures_call"
 
 bear.when_program_starts(when_program_starts_1)
-
 stage.play()

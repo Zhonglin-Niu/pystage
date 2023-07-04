@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 
 def when_i_receive_1(self):
     for _ in range(10):
@@ -69,5 +69,4 @@ def when_i_receive_message_5(self):
         self.create_clone_of("NO TRANSLATION: control_create_clone_of_menu")
 
 d_money_dance.when_i_receive_message("message1", when_i_receive_message_5)
-
 stage.play()

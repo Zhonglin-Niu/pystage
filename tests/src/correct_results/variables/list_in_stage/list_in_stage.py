@@ -4,11 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_list_variable("stage_list")
-stage.initialize_list("stage_list", ['thing'])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", -235, 175)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("stage_list", ['thing'])
+stage.show_list("stage_list", -235, 175)
 
 def when_GREENFLAG_clicked_1(self):
     self.add_value_to_list("stage_list", "thing")
@@ -23,5 +21,4 @@ sprite1.go_forward(1)
 sprite1.add_costume('costume1', center_x=48, center_y=50)
 sprite1.add_costume('costume2', center_x=46, center_y=53)
 sprite1.add_sound('meow')
-
 stage.play()

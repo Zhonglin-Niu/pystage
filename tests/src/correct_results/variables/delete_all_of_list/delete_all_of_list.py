@@ -4,11 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_list_variable("scratch list")
-stage.initialize_list("scratch list", [])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", -235, 175)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("scratch list", [])
+stage.show_list("scratch list", -235, 175)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -26,5 +24,4 @@ def when_program_starts_1(self):
     self.delete_all_from_list("scratch list")
 
 sprite1.when_program_starts(when_program_starts_1)
-
 stage.play()

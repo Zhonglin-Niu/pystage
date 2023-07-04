@@ -8,7 +8,7 @@ stage.add_backdrop('city_with_water')
 stage.add_backdrop('boardwalk')
 stage.add_backdrop('basketball_2')
 stage.add_backdrop('farm')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 amon = stage.add_a_sprite(None)
 amon.set_name("Amon")
 amon.set_x(280)
@@ -80,5 +80,4 @@ def when_program_starts_2(self):
         self.switch_backdrop_to("farm")
 
 anina_dance.when_program_starts(when_program_starts_2)
-
 stage.play()

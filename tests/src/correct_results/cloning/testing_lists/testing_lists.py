@@ -5,15 +5,9 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('backdrop1')
 stage.add_backdrop('field_at_mit')
-stage.create_variable('my variable')
-stage.create_list_variable("list_test")
-stage.initialize_list("list_test", ['boy', 'boy', 'bug', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'thing', 'whichacallit', 'small', 'whichacallit', 'large', 'medium', '', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing'])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", -231, 27)
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", -81, 151)
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", 127, 168)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("list_test", ['boy', 'boy', 'bug', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'bug', 'whichacallit', 'thing', 'whichacallit', 'small', 'whichacallit', 'large', 'medium', '', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing', 'thing'])
+stage.show_list("list_test", -231, 27)
 cassy_dance = stage.add_a_sprite(None)
 cassy_dance.set_name("Cassy Dance")
 cassy_dance.set_x(-123)
@@ -28,8 +22,8 @@ cassy_dance.add_sound('dance_around')
 
 def when_program_starts_1(self):
     self.add_value_to_list("list_test", "thing")
-    self.inserted_value_to_list("list_test", "boy", 1)
-    self.inserted_value_to_list("list_test", "whichacallit", 5)
+    self.insert_value_to_list("list_test", "boy", 1)
+    self.insert_value_to_list("list_test", "whichacallit", 5)
     self.replace_item_from_list("list_test", 3, "bug")
 
 cassy_dance.when_program_starts(when_program_starts_1)
@@ -52,9 +46,8 @@ champ99.add_costume('champ99_e', center_x=190, center_y=248, factor=2)
 champ99.add_costume('champ99_f', center_x=114, center_y=250, factor=2)
 champ99.add_costume('champ99_g', center_x=132, center_y=258, factor=2)
 champ99.add_sound('dance_celebrate')
-champ99.create_list_variable("list")
-champ99.add_value_to_list("list", "thing)
-stage.deleted_value_from_list("list", "thing")
+champ99.create_list_variable("list", ['thing'])
+champ99.show_list("list", 127, 168)
 
 def when_program_starts_3(self):
     if (self.item_in_list("list", 1) == 50):
@@ -75,15 +68,16 @@ elephant.go_forward(2)
 elephant.add_costume('elephant_a', center_x=107, center_y=33)
 elephant.add_costume('elephant_b', center_x=95, center_y=40)
 elephant.add_sound('pop')
-elephant.create_list_variable("elle")
+elephant.create_list_variable("elle", [])
+elephant.show_list("elle", -81, 151)
 
 def when_program_starts_4(self):
     while not self.list_contains_item("elle", "bob"):
         pass
 
-    self.deleted_value_from_list("elle", 1)
+    self.delete_value_from_list("elle", 1)
     self.add_value_to_list("elle", "thing")
-    self.inserted_value_to_list("elle", "thing", 2)
+    self.insert_value_to_list("elle", "thing", 2)
 
 elephant.when_program_starts(when_program_starts_4)
 
@@ -96,5 +90,4 @@ def when_program_starts_5(self):
         self.create_clone_of("NO TRANSLATION: control_create_clone_of_menu")
 
 elephant.when_program_starts(when_program_starts_5)
-
 stage.play()

@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 bowl = stage.add_a_sprite(None)
 bowl.set_name("Bowl")
 bowl.set_x(-3)
@@ -21,5 +21,4 @@ def when_program_starts_1(self):
         self.say("".join(["welcome back ", self.username()]))
 
 bowl.when_program_starts(when_program_starts_1)
-
 stage.play()

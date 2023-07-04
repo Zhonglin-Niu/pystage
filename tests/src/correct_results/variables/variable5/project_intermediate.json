@@ -1,5 +1,55 @@
 {
     "name": "variable5",
+    "stage": {
+        "name": "Stage",
+        "blocks": [],
+        "costumes": [
+            {
+                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
+                "local_name": "backdrop1",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            },
+            {
+                "md5": "f4f908da19e2753f3ed679d7b37650ca",
+                "local_name": "Jungle",
+                "bitmapResolution": 2,
+                "rotationCenterX": 480,
+                "rotationCenterY": 360
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "my variable": 44,
+            "points": 0
+        },
+        "lists": {},
+        "monitors": [
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 5,
+                "opcode": "data_variable",
+                "variable": "points"
+            }
+        ],
+        "currentCostume": 1,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Donut",
@@ -450,55 +500,5 @@
             "global_name": "basketball_bounce",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [],
-        "costumes": [
-            {
-                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
-                "local_name": "backdrop1",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            },
-            {
-                "md5": "f4f908da19e2753f3ed679d7b37650ca",
-                "local_name": "Jungle",
-                "bitmapResolution": 2,
-                "rotationCenterX": 480,
-                "rotationCenterY": 360
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "my variable": 44,
-            "points": 0
-        },
-        "lists": {},
-        "monitors": [
-            {
-                "style": "default",
-                "x": 5,
-                "y": 5,
-                "opcode": "data_variable",
-                "variable": "points"
-            }
-        ],
-        "currentCostume": 1,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

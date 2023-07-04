@@ -5,11 +5,9 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('backdrop1')
 stage.add_backdrop('castle_3')
-stage.create_variable('my variable')
-stage.show_builtinvariable("sensing_timer")
-stage.set_monitor_position("sensing_timer", -235, 148)
-stage.show_builtinvariable("sensing_current")
-stage.set_monitor_position("sensing_current", -235, 175)
+stage.create_variable('my variable', 0)
+stage.show_builtinvariable("timer", -235, 148)
+stage.show_builtinvariable("current_year", -235, 175)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(293)
@@ -81,5 +79,4 @@ def when_program_starts_10(self):
     self.change_x_by(self.days_since())
 
 cat.when_program_starts(when_program_starts_10)
-
 stage.play()

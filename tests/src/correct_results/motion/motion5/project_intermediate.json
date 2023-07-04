@@ -1,5 +1,74 @@
 {
     "name": "motion5",
+    "stage": {
+        "name": "Stage",
+        "blocks": [],
+        "costumes": [
+            {
+                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
+                "local_name": "backdrop1",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            },
+            {
+                "md5": "92968ac16b2f0c3f7835a6dacd172c7b",
+                "local_name": "Forest",
+                "bitmapResolution": 2,
+                "rotationCenterX": 480,
+                "rotationCenterY": 360
+            },
+            {
+                "md5": "92968ac16b2f0c3f7835a6dacd172c7b",
+                "local_name": "Forest2",
+                "bitmapResolution": 2,
+                "rotationCenterX": 480,
+                "rotationCenterY": 360
+            },
+            {
+                "md5": "8eb8790be5507fdccf73e7c1570bbbab",
+                "local_name": "Blue Sky 2 ",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "your_score": 5
+        },
+        "lists": {},
+        "monitors": [
+            {
+                "style": "normal",
+                "x": 5,
+                "y": 5,
+                "opcode": "sensing_timer"
+            },
+            {
+                "style": "normal",
+                "x": 7,
+                "y": 34,
+                "opcode": "data_variable",
+                "variable": "your_score"
+            }
+        ],
+        "currentCostume": 3,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Bread",
@@ -931,74 +1000,5 @@
             "global_name": "bark",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [],
-        "costumes": [
-            {
-                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
-                "local_name": "backdrop1",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            },
-            {
-                "md5": "92968ac16b2f0c3f7835a6dacd172c7b",
-                "local_name": "Forest",
-                "bitmapResolution": 2,
-                "rotationCenterX": 480,
-                "rotationCenterY": 360
-            },
-            {
-                "md5": "92968ac16b2f0c3f7835a6dacd172c7b",
-                "local_name": "Forest2",
-                "bitmapResolution": 2,
-                "rotationCenterX": 480,
-                "rotationCenterY": 360
-            },
-            {
-                "md5": "8eb8790be5507fdccf73e7c1570bbbab",
-                "local_name": "Blue Sky 2 ",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "your_score": 5
-        },
-        "lists": {},
-        "monitors": [
-            {
-                "style": "default",
-                "x": 5,
-                "y": 5,
-                "opcode": "sensing_timer"
-            },
-            {
-                "style": "default",
-                "x": 7,
-                "y": 34,
-                "opcode": "data_variable",
-                "variable": "your_score"
-            }
-        ],
-        "currentCostume": 3,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 dinosaur1 = stage.add_a_sprite(None)
 dinosaur1.set_name("Dinosaur1")
 dinosaur1.set_x(49)
@@ -51,5 +51,4 @@ def when_program_starts_4(self):
         self.go_to_random_position()
 
 cheesy_puffs.when_program_starts(when_program_starts_4)
-
 stage.play()

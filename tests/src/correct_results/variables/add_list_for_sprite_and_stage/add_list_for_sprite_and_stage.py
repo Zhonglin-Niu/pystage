@@ -4,13 +4,10 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_list_variable("list_in_Sprite1")
-stage.initialize_list("list_in_Sprite1", [])
-stage.create_list_variable("list_for_stage")
-stage.initialize_list("list_for_stage", ['stage'])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", -85, 175)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("list_in_Sprite1", [])
+stage.create_list_variable("list_for_stage", ['stage'])
+stage.show_list("list_for_stage", -85, 175)
 
 def when_GREENFLAG_clicked_1(self):
     self.wait_seconds(1.0)
@@ -26,12 +23,11 @@ sprite1.go_forward(1)
 sprite1.add_costume('costume1', center_x=48, center_y=50)
 sprite1.add_costume('costume2', center_x=46, center_y=53)
 sprite1.add_sound('meow')
-sprite1.create_list_variable("list_for_sprite")
-sprite1.add_value_to_list("list_for_sprite", "sprite")
+sprite1.create_list_variable("list_for_sprite", ['sprite'])
+sprite1.show_list("list_for_sprite", -235, 175)
 
 def when_program_starts_2(self):
     self.add_value_to_list("list_for_sprite", "sprite")
 
 sprite1.when_program_starts(when_program_starts_2)
-
 stage.play()
