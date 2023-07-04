@@ -1,5 +1,23 @@
+from typing import Literal
 from pystage.core import CoreStage
 from pystage.en import Sprite
+
+builtins = Literal[
+    "timer",
+    "backdrop_number",
+    "backdrop_name",
+    "answer",
+    "loudness",
+    "current_year",
+    "username",
+    "current_month",
+    "current_date",
+    "current_dayofweek",
+    "current_hour",
+    "current_minute",
+    "current_second",
+    "volume"
+]
 
 
 class Stage():
@@ -157,7 +175,7 @@ class Stage():
         """
         return self._core.data_setvariableto(name, value)
 
-    def show_variable(self, name):
+    def show_variable(self, name, x=-240, y=180, style='normal'):
         """show variable %1
 
         Translation string: show variable %1
@@ -174,9 +192,9 @@ class Stage():
         -------
 
         """
-        return self._core.data_showvariable(name)
+        return self._core.data_showvariable(name, x, y, style)
 
-    def show_builtinvariable(self, name):
+    def show_builtinvariable(self, name: builtins, x=-240, y=180, style='normal'):
         """show builtin variable %1
 
         Engl. Translation for your reference: ...
@@ -192,7 +210,7 @@ class Stage():
         -------
 
         """
-        return self._core.data_showbuiltinvariable(name)
+        return self._core.data_showbuiltinvariable(name, x, y, style)
     
     def get_variable(self, name):
         """
@@ -212,6 +230,9 @@ class Stage():
 
         """
         return self._core.data_variable(name)
+    
+    def get_list(self, name):
+        return self._core.data_listvariable(name)
 
     def broadcast(self, message):
         """broadcast %1
@@ -888,7 +909,7 @@ class Stage():
         """
         return self._core.pystage_insertbackdrop(index, name, center_x, center_y)
 
-    def create_variable(self, name, all_sprites=True):
+    def create_variable(self, name, value=0):
         """
 
         Translation string:
@@ -906,9 +927,9 @@ class Stage():
         -------
 
         """
-        return self._core.pystage_makevariable(name, all_sprites)
+        return self._core.pystage_makevariable(name, value)
 
-    def create_list_variable(self, name, all_sprites=True):
+    def create_list_variable(self, name, value, all_sprites=True):
         """
 
         Engl. Translation for your reference: ...
@@ -925,26 +946,7 @@ class Stage():
         -------
 
         """
-        return self._core.pystage_makelistvariable(name, all_sprites=True)
-    
-    def initialize_list(self, list_variable, list_of_values):
-        """
-
-        Engl. Translation for your reference: ...
-        Engl. Documentation when available...
-
-
-        Parameters
-        ----------
-        name : FILL
-        all_sprites : FILL
-
-
-        Returns
-        -------
-
-        """
-        return self._core.data_initializelist(list_variable, list_of_values)
+        return self._core.pystage_makelistvariable(name, value, all_sprites=True)
     
     def add_value_to_list(self, list_variable, value):
         """
@@ -1004,7 +1006,7 @@ class Stage():
         
         return self._core.data_deletealloflist(list_variable)
     
-    def inserted_value_to_list(self, list_variable, value, position):
+    def inserted_value_to_list(self, list_variable, position, value):
         """
 
         Engl. Translation for your reference: ...
@@ -1022,9 +1024,9 @@ class Stage():
         -------
 
         """
-        return self._core.data_insertatlist(list_variable, value, position)
+        return self._core.data_insertatlist(list_variable, position, value)
 
-    def replaced_item_from_list(self, list_variable, value, position):
+    def replaced_item_from_list(self, list_variable, position, value):
         """
 
         Engl. Translation for your reference: ...
@@ -1042,9 +1044,9 @@ class Stage():
         -------
 
         """
-        return self._core.data_replaceitemoflist(list_variable, value, position)
+        return self._core.data_replaceitemoflist(list_variable, position, value)
     
-    def item_in_list(self, position, list_variable):
+    def item_in_list(self, list_variable, position):
         """
 
         Engl. Translation for your reference: ...
@@ -1063,9 +1065,9 @@ class Stage():
         -------
 
         """
-        return self._core.data_itemoflist(self, position, list_variable)
+        return self._core.data_itemoflist(self, list_variable, position)
     
-    def item_number_in_list(self, value, list_variable):
+    def item_number_in_list(self, list_variable, value):
         """
 
         Engl. Translation for your reference: ...
@@ -1084,7 +1086,7 @@ class Stage():
         -------
 
         """
-        return self._core.data_itemnumoflist(value, list_variable)
+        return self._core.data_itemnumoflist(list_variable, value)
     
     def show_length_of_list(self, list_variable):
         """
@@ -1122,7 +1124,7 @@ class Stage():
         """
         return self._core.data_listcontainsitem(list_variable, value)
     
-    def show_list(self, list_variable):
+    def show_list(self, list_variable, x=-240, y=180):
         """
 
         Engl. Translation for your reference: ...
@@ -1138,7 +1140,7 @@ class Stage():
 
         """
         
-        return self._core.data_showlist(list_variable)
+        return self._core.data_showlist(list_variable, x, y)
     
     def hide_list(self, list_variable):
         """
