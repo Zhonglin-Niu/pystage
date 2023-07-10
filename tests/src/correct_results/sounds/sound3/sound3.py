@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -29,5 +29,4 @@ def when_program_starts_1(self):
     self.play_sound_until_done("meow")
 
 sprite1.when_program_starts(when_program_starts_1)
-
 stage.play()

@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(0)
@@ -19,5 +19,4 @@ def when_timer_greater_than_1(self):
     self.say_for_seconds("Hello!", 2.0)
 
 sprite1.when_timer_greater_than(10.0, when_timer_greater_than_1)
-
 stage.play()

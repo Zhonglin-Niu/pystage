@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 anina_dance = stage.add_a_sprite(None)
 anina_dance.set_name("Anina Dance")
 anina_dance.set_x(28)
@@ -68,5 +68,4 @@ def when_key_pressed_8(self):
     self.say(self.days_since())
 
 anina_dance.when_key_pressed("z", when_key_pressed_8)
-
 stage.play()

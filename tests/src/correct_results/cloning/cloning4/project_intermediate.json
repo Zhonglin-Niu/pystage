@@ -1,5 +1,89 @@
 {
     "name": "cloning4",
+    "stage": {
+        "name": "Stage",
+        "blocks": [
+            {
+                "opcode": "event_whenbroadcastreceived",
+                "params": {
+                    "BROADCAST_OPTION": "\"message1\""
+                },
+                "next": {
+                    "opcode": "control_repeat",
+                    "params": {
+                        "TIMES": 10,
+                        "SUBSTACK": {
+                            "opcode": "sound_play",
+                            "params": {
+                                "SOUND_MENU": {
+                                    "opcode": "sound_sounds_menu",
+                                    "params": {
+                                        "SOUND_MENU": "\"pop\""
+                                    },
+                                    "next": false,
+                                    "stage": true,
+                                    "comment": null
+                                }
+                            },
+                            "next": false,
+                            "stage": true,
+                            "comment": null
+                        }
+                    },
+                    "next": false,
+                    "stage": true,
+                    "comment": null
+                },
+                "stage": true,
+                "comment": null
+            },
+            {
+                "opcode": "event_whenflagclicked",
+                "params": {},
+                "next": {
+                    "opcode": "event_broadcast",
+                    "params": {
+                        "BROADCAST_INPUT": "\"message1\""
+                    },
+                    "next": false,
+                    "stage": true,
+                    "comment": null
+                },
+                "stage": true,
+                "comment": null
+            }
+        ],
+        "costumes": [
+            {
+                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
+                "local_name": "backdrop1",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "my variable": 0
+        },
+        "lists": {},
+        "monitors": [],
+        "currentCostume": 0,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Button4",
@@ -380,89 +464,5 @@
             "global_name": "dance_celebrate",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [
-            {
-                "opcode": "event_whenbroadcastreceived",
-                "params": {
-                    "BROADCAST_OPTION": "\"message1\""
-                },
-                "next": {
-                    "opcode": "control_repeat",
-                    "params": {
-                        "TIMES": 10,
-                        "SUBSTACK": {
-                            "opcode": "sound_play",
-                            "params": {
-                                "SOUND_MENU": {
-                                    "opcode": "sound_sounds_menu",
-                                    "params": {
-                                        "SOUND_MENU": "\"pop\""
-                                    },
-                                    "next": false,
-                                    "stage": true,
-                                    "comment": null
-                                }
-                            },
-                            "next": false,
-                            "stage": true,
-                            "comment": null
-                        }
-                    },
-                    "next": false,
-                    "stage": true,
-                    "comment": null
-                },
-                "stage": true,
-                "comment": null
-            },
-            {
-                "opcode": "event_whenflagclicked",
-                "params": {},
-                "next": {
-                    "opcode": "event_broadcast",
-                    "params": {
-                        "BROADCAST_INPUT": "\"message1\""
-                    },
-                    "next": false,
-                    "stage": true,
-                    "comment": null
-                },
-                "stage": true,
-                "comment": null
-            }
-        ],
-        "costumes": [
-            {
-                "md5": "cd21514d0531fdffb22204e0ec5ed84a",
-                "local_name": "backdrop1",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "my variable": 0
-        },
-        "lists": {},
-        "monitors": [],
-        "currentCostume": 0,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

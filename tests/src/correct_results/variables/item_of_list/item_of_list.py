@@ -4,11 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_list_variable("second list")
-stage.initialize_list("second list", ['branden', 'branden', 'branden', 'thing', 'branden', 'thing'])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", 84, 170)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("second list", ['branden', 'branden', 'branden', 'thing', 'branden', 'thing'])
+stage.show_list("second list", 84, 170)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(-39)
@@ -31,5 +29,4 @@ def when_program_starts_2(self):
     self.add_value_to_list("second list", "thing")
 
 sprite1.when_program_starts(when_program_starts_2)
-
 stage.play()

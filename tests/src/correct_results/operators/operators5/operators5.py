@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 cake = stage.add_a_sprite(None)
 cake.set_name("Cake")
 cake.set_x(23)
@@ -23,5 +23,4 @@ def when_program_starts_1(self):
         self.change_size_by(-10.0)
 
 cake.when_program_starts(when_program_starts_1)
-
 stage.play()

@@ -4,11 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_list_variable("car")
-stage.initialize_list("car", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54])
-stage.show_builtinvariable("data_listcontents")
-stage.set_monitor_position("data_listcontents", 138, 180)
+stage.create_variable('my variable', 0)
+stage.create_list_variable("car", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54])
+stage.show_list("car", 138, 180)
 convertible_2 = stage.add_a_sprite(None)
 convertible_2.set_name("Convertible 2")
 convertible_2.set_x(48)
@@ -27,5 +25,4 @@ def when_i_start_as_a_clone_2(self):
     self.show()
 
 convertible_2.when_i_start_as_a_clone(when_i_start_as_a_clone_2)
-
 stage.play()

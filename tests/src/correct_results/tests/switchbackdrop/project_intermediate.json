@@ -1,5 +1,46 @@
 {
     "name": "switchbackdrop",
+    "stage": {
+        "name": "Stage",
+        "blocks": [],
+        "costumes": [
+            {
+                "md5": "a5865738283613a2725b2c9dda6d8c78",
+                "local_name": "Basketball 2",
+                "bitmapResolution": 2,
+                "rotationCenterX": 480,
+                "rotationCenterY": 360
+            },
+            {
+                "md5": "6cab934df643d2fc508cfa90c0c4059b",
+                "local_name": "Pool",
+                "bitmapResolution": 2,
+                "rotationCenterX": 480,
+                "rotationCenterY": 360
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "my variable": 0
+        },
+        "lists": {},
+        "monitors": [],
+        "currentCostume": 0,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Sprite1",
@@ -123,46 +164,5 @@
             "global_name": "meow",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [],
-        "costumes": [
-            {
-                "md5": "a5865738283613a2725b2c9dda6d8c78",
-                "local_name": "Basketball 2",
-                "bitmapResolution": 2,
-                "rotationCenterX": 480,
-                "rotationCenterY": 360
-            },
-            {
-                "md5": "6cab934df643d2fc508cfa90c0c4059b",
-                "local_name": "Pool",
-                "bitmapResolution": 2,
-                "rotationCenterX": 480,
-                "rotationCenterY": 360
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "my variable": 0
-        },
-        "lists": {},
-        "monitors": [],
-        "currentCostume": 0,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

@@ -5,7 +5,7 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('backdrop1')
 stage.add_backdrop('witch_house')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 saxophone = stage.add_a_sprite(None)
 saxophone.set_name("Saxophone")
 saxophone.set_x(-2)
@@ -51,6 +51,7 @@ guitar_electric1.add_sound('g_elec_guitar')
 guitar_electric1.add_sound('a_elec_guitar')
 guitar_electric1.add_sound('b_elec_guitar')
 guitar_electric1.add_sound('c2_elec_guitar')
+guitar_electric1.show_builtinvariable("volume", -235, 175)
 
 def when_this_sprite_clicked_2(self):
     self.change_pitch_effect_by(1000000.0)
@@ -80,5 +81,4 @@ def when_this_sprite_clicked_3(self):
         self.play_sound_until_done("low_tom")
 
 drum_kit.when_this_sprite_clicked(when_this_sprite_clicked_3)
-
 stage.play()

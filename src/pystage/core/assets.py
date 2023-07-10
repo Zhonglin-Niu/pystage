@@ -138,7 +138,9 @@ class CostumeManager():
         if self.current_costume == -1:
             return 0, 0
         cx, cy = self.get_center()
-        return 240 - cx, 180 - cy
+        if (cx, cy) == (240, 180):
+            return 0, 0
+        return 240 + cx, 180 - cy
 
 
     def process_image(self):

@@ -4,10 +4,9 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
-stage.create_variable('var')
-stage.show_variable("var")
-stage.set_monitor_position("var", -235, 175)
+stage.create_variable('my variable', 2)
+stage.create_variable('var', 0)
+stage.show_variable("var", -235, 175)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(19)
@@ -48,5 +47,4 @@ def when_program_starts_2(self):
     self.set_x(self.size())
 
 buildings.when_program_starts(when_program_starts_2)
-
 stage.play()

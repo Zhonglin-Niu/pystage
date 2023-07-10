@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 
 """
 # Sprite1
@@ -44,5 +44,4 @@ def when_backdrop_switches_to_3(self):
         pass
 
 sprite1.when_backdrop_switches_to("backdrop1", when_backdrop_switches_to_3)
-
 stage.play()

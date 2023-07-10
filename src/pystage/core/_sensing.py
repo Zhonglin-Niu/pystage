@@ -35,7 +35,8 @@ class _Sensing(BaseSprite):
 
     def sensing_loudness(self):
         # See events area, not sure if we support microphone access
-        pass
+        # -1 is from Scratch
+        return -1
 
     def sensing_timer(self):
         return self.stage.timer

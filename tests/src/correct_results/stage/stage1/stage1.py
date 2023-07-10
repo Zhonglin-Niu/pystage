@@ -5,7 +5,7 @@ from pystage.en import Sprite, Stage
 stage = Stage()
 stage.add_backdrop('blue_sky')
 stage.add_backdrop('canyon')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 
 def when_key_pressed_1(self):
     self.change_color_effect_by(25.0)
@@ -50,5 +50,4 @@ sprite1.go_forward(1)
 sprite1.add_costume('costume1', center_x=48, center_y=50)
 sprite1.add_costume('costume2', center_x=46, center_y=53)
 sprite1.add_sound('meow')
-
 stage.play()

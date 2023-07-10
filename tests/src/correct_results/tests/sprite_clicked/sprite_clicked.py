@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 sprite1 = stage.add_a_sprite(None)
 sprite1.set_name("Sprite1")
 sprite1.set_x(-11)
@@ -36,5 +36,4 @@ def when_this_sprite_clicked_2(self):
     self.go_forward(1)
 
 apple.when_this_sprite_clicked(when_this_sprite_clicked_2)
-
 stage.play()

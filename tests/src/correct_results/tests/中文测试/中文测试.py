@@ -18,5 +18,4 @@ def when_program_starts_1(self):
     pass
 
 sprite1.when_program_starts(when_program_starts_1)
-
 stage.play()

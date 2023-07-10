@@ -7,7 +7,7 @@ stage.add_backdrop('backdrop1')
 stage.add_backdrop('blue_sky')
 stage.add_backdrop('chalkboard')
 stage.add_backdrop('colorful_city')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 
 def when_GREENFLAG_clicked_1(self):
     self.wait_seconds(2.0)
@@ -62,5 +62,4 @@ def when_backdrop_switches_to_6(self):
     self.say_for_seconds("Sprite2 backdrop changed to Blue Sky", 0.5)
 
 sprite2.when_backdrop_switches_to("blue_sky", when_backdrop_switches_to_6)
-
 stage.play()

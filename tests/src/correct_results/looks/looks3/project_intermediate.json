@@ -1,5 +1,60 @@
 {
     "name": "looks3",
+    "stage": {
+        "name": "Stage",
+        "blocks": [],
+        "costumes": [
+            {
+                "md5": "dd106330c485bb86143ec614634e7a6b",
+                "local_name": "backdrop1",
+                "bitmapResolution": 1,
+                "rotationCenterX": 140.89789386542452,
+                "rotationCenterY": 142.7356775946011
+            },
+            {
+                "md5": "e7c147730f19d284bcd7b3f00af19bb6",
+                "local_name": "Blue Sky",
+                "bitmapResolution": 1,
+                "rotationCenterX": 240,
+                "rotationCenterY": 180
+            },
+            {
+                "md5": "87440c3dc41d970c06e8c9f6f335d6ff",
+                "local_name": "random one",
+                "bitmapResolution": 1,
+                "rotationCenterX": 165.39802840013851,
+                "rotationCenterY": 139.91927969531463
+            },
+            {
+                "md5": "423d660642ff94cc5f9ecebcd99aaec3",
+                "local_name": "next backdrop",
+                "bitmapResolution": 1,
+                "rotationCenterX": 139,
+                "rotationCenterY": 80.55260901728201
+            }
+        ],
+        "sounds": [
+            {
+                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
+                "local_name": "pop"
+            }
+        ],
+        "variables": {
+            "my variable": 0
+        },
+        "lists": {},
+        "monitors": [],
+        "currentCostume": 3,
+        "layerOrder": 0,
+        "visible": true,
+        "x": 0,
+        "y": 0,
+        "size": 100,
+        "volume": 100,
+        "direction": 90,
+        "rotationStyle": "all around",
+        "comments": []
+    },
     "sprites": [
         {
             "name": "Sprite1",
@@ -210,60 +265,5 @@
             "global_name": "meow",
             "extension": "wav"
         }
-    },
-    "stage": {
-        "name": "Stage",
-        "blocks": [],
-        "costumes": [
-            {
-                "md5": "dd106330c485bb86143ec614634e7a6b",
-                "local_name": "backdrop1",
-                "bitmapResolution": 1,
-                "rotationCenterX": 140.89789386542452,
-                "rotationCenterY": 142.7356775946011
-            },
-            {
-                "md5": "e7c147730f19d284bcd7b3f00af19bb6",
-                "local_name": "Blue Sky",
-                "bitmapResolution": 1,
-                "rotationCenterX": 240,
-                "rotationCenterY": 180
-            },
-            {
-                "md5": "87440c3dc41d970c06e8c9f6f335d6ff",
-                "local_name": "random one",
-                "bitmapResolution": 1,
-                "rotationCenterX": 165.39802840013851,
-                "rotationCenterY": 139.91927969531463
-            },
-            {
-                "md5": "423d660642ff94cc5f9ecebcd99aaec3",
-                "local_name": "next backdrop",
-                "bitmapResolution": 1,
-                "rotationCenterX": 139,
-                "rotationCenterY": 80.55260901728201
-            }
-        ],
-        "sounds": [
-            {
-                "md5": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "local_name": "pop"
-            }
-        ],
-        "variables": {
-            "my variable": 0
-        },
-        "lists": {},
-        "monitors": [],
-        "currentCostume": 3,
-        "layerOrder": 0,
-        "visible": true,
-        "x": 0,
-        "y": 0,
-        "size": 100,
-        "volume": 100,
-        "direction": 90,
-        "rotationStyle": "all around",
-        "comments": []
     }
 }

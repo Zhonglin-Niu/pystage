@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 
 """
 # Sprite1
@@ -33,5 +33,4 @@ def when_key_pressed_2(self):
     self.say("Aha")  # comment for say Aha
 
 sprite1.when_key_pressed("space", when_key_pressed_2)
-
 stage.play()

@@ -4,7 +4,7 @@ from pystage.en import Sprite, Stage
 
 stage = Stage()
 stage.add_backdrop('backdrop1')
-stage.create_variable('my variable')
+stage.create_variable('my variable', 0)
 cheesy_puffs = stage.add_a_sprite(None)
 cheesy_puffs.set_name("Cheesy Puffs")
 cheesy_puffs.set_x(-13)
@@ -25,5 +25,4 @@ dog2.add_costume('dog2_c', center_x=75, center_y=75)
 dog2.next_costume()
 dog2.next_costume()
 dog2.add_sound('dog1')
-
 stage.play()
