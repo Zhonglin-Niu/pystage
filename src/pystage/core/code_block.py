@@ -14,6 +14,7 @@ yield_funcs = [
     "sensing_askandwait",
     "looks_sayforsecs",
     "looks_thinkforsecs",
+    "event_broadcastandwait"
 ]
 
 
@@ -55,6 +56,10 @@ class CodeManager():
         if message in self.broadcast_blocks:
             for name in self.broadcast_blocks[message]:
                 self.code_blocks[name].start_or_restart()
+
+    def broadcast_done(self, message):
+        message_blocks = self.broadcast_blocks.get(message, [])
+        return all([not self.code_blocks[block].running for block in message_blocks])
 
     def process_backdrop_switch(self, backdrop_name):
         function_names = self.backdrop_switch_blocks.get(backdrop_name, [])
@@ -164,6 +169,7 @@ class CodeBlock():
         self.gliding_end_position = (0, 0)
 
         self.saying = False
+        self.broadcasting = False
         # Flag indicating if the block is currently running
         self.running = False
         # Ask mode (waiting for user input)
@@ -211,7 +217,12 @@ class CodeBlock():
         # Do nothing while waiting for an answer.
         if self.asking:
             return
-        self.wait_time -= dt
+        if not self.broadcasting:
+            self.wait_time -= dt
+        # handle whether all broadcasting blocks are done.
+        if self.broadcasting:
+            if self.sprite_or_stage.stage.message_broker.broadcast_done():
+                self.broadcasting = False
         if self.wait_time < 0:
             if self.gliding:
                 self.x, self.y = self.gliding_end_position
