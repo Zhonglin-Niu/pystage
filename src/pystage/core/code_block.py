@@ -27,6 +27,7 @@ class CodeManager():
         # message: [name, ...]
         self.broadcast_blocks = {}
         self.clicked_blocks = []
+        self.backdrop_switch_blocks = {}
         # {time: {"done": bool, "block": [CodeBlock, ...]}}
         self.time_gt_blocks = {}
         # Name of the code block currently executed.
@@ -56,6 +57,11 @@ class CodeManager():
         if message in self.broadcast_blocks:
             for name in self.broadcast_blocks[message]:
                 self.code_blocks[name].start_or_restart()
+
+    def process_backdrop_switch(self, backdrop_name):
+        function_names = self.backdrop_switch_blocks.get(backdrop_name, [])
+        for name in function_names:
+            self.code_blocks[name].start_or_restart()
 
     def process_time_gt(self, timer):
         function_names = [detail for time, detail in self.time_gt_blocks.items() if timer > time and not detail["done"]]
