@@ -202,6 +202,11 @@ class BubbleManager():
     def think(self, text: str):
         self.say(text, Bubble.THINK)
 
+    def kill(self):
+        if self.bubble:
+            self.bubble.kill()
+            self.bubble = None
+
     def sayforsecs(self, text: str, secs: int):
         self.say(text)
         self.sprite.code_manager.current_block.saying = True
