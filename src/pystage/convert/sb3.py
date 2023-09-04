@@ -369,21 +369,24 @@ def get_python(project, language="core"):
     writer = CodeWriter(project, sb3_templates.templates, language)
     writer.set_sprite(project["stage"]["name"])
     stage_var = writer.get_sprite_var()
-    backdrops = []
+    # {"backdrop1": [rotationCenterX, rotationCenterY], ...}
+    backdrops = {}
     for bd in project["stage"]["costumes"]:
-        backdrops.append(writer.global_backdrop(bd["local_name"], False))
-    # comment for stage
-    if comments := project["stage"]["comments"]:
-        comments = "\n".join(comments)
-        # not using textwrap.dedent here because it would indent incorrectly
-        # when there is more than one comment
-        res += f'\n"""\n# {project["stage"]["name"]}\n\n{comments}\n"""\n'
+        name = writer.global_backdrop(bd["local_name"], False)
+        resolution = bd.get("bitmapResolution", 1)
+        backdrops[name] = [bd.get("rotationCenterX")/resolution, bd.get("rotationCenterY")/resolution]
     res += textwrap.dedent(f'''\
             {stage_var} = {stage_class}()
             ''')
     for bd in backdrops:
-        res += textwrap.dedent(f'''\
-                {stage_var}.{add_backdrop}('{bd}')
+        # if the backdrop is drawn at the default topleft position, we don't need to specify the position
+        if (round(backdrops[bd][0]), round(backdrops[bd][1])) == (240, 180):
+            res += textwrap.dedent(f'''\
+                    {stage_var}.{add_backdrop}('{bd}')
+                ''')
+        else:
+            res += textwrap.dedent(f'''\
+                    {stage_var}.{add_backdrop}('{bd}', {-round(backdrops[bd][0])}, {round(backdrops[bd][1])})
                 ''')
     for v in project["stage"]["variables"]:
         value = project["stage"]["variables"][v]
