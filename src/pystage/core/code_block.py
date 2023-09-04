@@ -13,8 +13,9 @@ yield_funcs = [
     "motion_glideto_sprite",
     "motion_glideto_pointer",
     "sensing_askandwait",
-     "looks_sayforsecs",
+    "looks_sayforsecs",
     "looks_thinkforsecs",
+    "event_broadcastandwait"
 ]
 
 
@@ -69,6 +70,10 @@ class CodeManager():
             detail["done"] = True
             for name in detail["blocks"]:
                 self.code_blocks[name].start_or_restart()
+    def broadcast_done(self, message):
+        message_blocks = self.broadcast_blocks.get(message, [])
+        # check if all blocks are done
+        return all([not self.code_blocks[block].running for block in message_blocks])
 
     def register_code_block(self, generator_function, name="", no_refresh=False):
         new_block = CodeBlock(self.owner, generator_function, name, no_refresh=no_refresh)
@@ -165,6 +170,7 @@ class CodeBlock():
         self.running = False
         # Ask mode (waiting for user input)
         self.asking = False
+        self.broadcasting = False
 
     def ask(self, question):
         # Go into "ask" mode
@@ -208,7 +214,13 @@ class CodeBlock():
         # Do nothing while waiting for an answer.
         if self.asking:
             return
-        self.wait_time -= dt
+        # Do nothing while broadcasting, cause we don't know how long it takes.
+        if not self.broadcasting:
+            self.wait_time -= dt
+        # handle whether all broadcasting blocks are done.
+        if self.broadcasting:
+            if self.sprite_or_stage.stage.message_broker.broadcast_done():
+                self.broadcasting = False
         if self.wait_time < 0:
             if self.gliding:
                 self.x, self.y = self.gliding_end_position
