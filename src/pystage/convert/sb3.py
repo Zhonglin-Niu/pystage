@@ -388,6 +388,10 @@ def get_python(project, language="core"):
             res += textwrap.dedent(f'''\
                     {stage_var}.{add_backdrop}('{bd}', {-round(backdrops[bd][0])}, {round(backdrops[bd][1])})
                 ''')
+    for sound in project["stage"]["sounds"]:
+        res += textwrap.dedent(f'''\
+                {stage_var}.{add_sound}('{sound["local_name"]}')
+                ''')
     for v in project["stage"]["variables"]:
         value = project["stage"]["variables"][v]
         res += textwrap.dedent(f'''\
