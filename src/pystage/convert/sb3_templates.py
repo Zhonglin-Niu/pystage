@@ -126,6 +126,7 @@ templates = {
 
         "sensing_keyoptions": "{{KEY_OPTION}}",
         "sensing_distancetomenu": "{{DISTANCETOMENU | global_sprite}}",
+        "sensing_touchingobjectmenu": "{{TOUCHINGOBJECTMENU | global_sprite}}",
 
                 }
 
