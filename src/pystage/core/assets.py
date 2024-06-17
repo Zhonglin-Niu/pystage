@@ -396,7 +396,7 @@ class Costume():
         if self.file.endswith(".png"):
             # might using resolution as a factor be better
             # but according to my observation, it is always 2
-            self.image = pygame.transform.scale_by(self.image, 1/2)
+            self.image = pygame.transform.scale(self.image, pygame.Vector2(self.image.get_size()) * 0.5)
         
         if self.scale != (1, 1):
             w, h = self.image.get_size()
