@@ -6,29 +6,40 @@ from pystage.l10n.api import get_core_function_from_instance
 # Functions that need to be yielded for screen refresh
 yield_funcs = [
     "control_wait",
+    # Stop needs to yield so that the next command is not executed
+    "control_stop_all",
+    "control_stop_this",
+    "control_stop_other",
     "sound_playuntildone",
     "motion_glidesecstoxy",
     "motion_glideto_random",
     "motion_glideto_sprite",
     "motion_glideto_pointer",
     "sensing_askandwait",
+     "looks_sayforsecs",
+    "looks_thinkforsecs",
 ]
 
 
 class CodeManager():
     def __init__(self, owner):
         # name: code_block
-        self.code_blocks = {}
+        self.code_blocks: dict[str, CodeBlock] = {}
         # pygame.K_?: [name, ...]
         self.key_pressed_blocks = {}
         # message: [name, ...]
         self.broadcast_blocks = {}
         self.clicked_blocks = []
+        self.cloned_blocks = []
         # Name of the code block currently executed.
         # This way, state about the current execustion
         # can be stored safely where it belongs
         self.current_block: CodeBlock = None
         self.owner = owner
+
+    def stop_running_blocks(self):
+        for name in self.code_blocks:
+            self.code_blocks[name].stop()
 
     def process_key_pressed(self, key):
         # key is a pygame constant, e.g. pygame.K_a
@@ -58,6 +69,14 @@ class CodeManager():
             self.current_block = self.code_blocks[name]
             self.code_blocks[name].update(dt)
 
+    def clone(self, owner):
+        clone = CodeManager(owner)
+        for name in self.code_blocks:
+            code_block = self.code_blocks[name]
+            cloned_block = clone.register_code_block(code_block.generator_function, "clone", code_block.no_refresh)
+            if code_block in self.cloned_blocks:
+                clone.cloned_blocks.append(cloned_block)
+        return clone
 
 class CodeBlock():
     '''
@@ -136,6 +155,8 @@ class CodeBlock():
         self.gliding_seconds = 0
         self.gliding_start_position = (0, 0)
         self.gliding_end_position = (0, 0)
+
+        self.saying = False
         # Flag indicating if the block is currently running
         self.running = False
         # Ask mode (waiting for user input)
@@ -174,6 +195,19 @@ class CodeBlock():
                 self.generator = self.generator_function()
         print(f"Start of {self.name} triggered.")
 
+    def stop(self):
+        """
+        If there is other behaviors need to be stopped, add them here.
+        """
+        self.running = False
+        self.asking = False
+        self.saying = False
+        if type(self.sprite_or_stage).__name__ == "CoreSprite":
+            self.sprite_or_stage.bubble_manager.kill()
+        if type(self.sprite_or_stage).__name__ == "CoreStage":
+            self.sprite_or_stage.input_manager.cancel_asking()
+        print(f"Stop of {self.name} triggered.")
+
     def update(self, dt):
         '''
         Check if it is time for the next step and execute it.
@@ -188,6 +222,9 @@ class CodeBlock():
             if self.gliding:
                 self.x, self.y = self.gliding_end_position
                 self.gliding = False
+            if self.saying:
+                self.sprite_or_stage.bubble_manager.kill()
+                self.saying = False
             if self.is_function:
                 target = self.sprite_or_stage
                 if self.sprite_or_stage.facade:
@@ -277,3 +314,9 @@ class CodeBlock():
         code = compile(func_ast, "<string>", mode="exec")
         exec(code, namespace)
         return namespace[function.__name__]
+    
+    def __str__(self):
+        return f"<CodeBlock {self.name} - {self.running}>"
+    
+    def __repr__(self):
+        return str(self)

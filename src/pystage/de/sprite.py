@@ -9,7 +9,21 @@ class Figur():
 
 
             
-    def erzeuge_klon_von(self, sprite='_myself_'):
+    def erzeuge_klon_von_mir(self):
+        """erzeuge Klon von mir selbst
+
+        Translation string: erzeuge Klon von %1
+        Engl. Translation for your reference: ...
+        Engl. Documentation when available...
+
+        
+        Returns
+        -------
+
+        """
+        return self._core.control_create_clone_of_myself()
+                
+    def erzeuge_klon_von_sprite(self, sprite):
         """erzeuge Klon von %1
 
         Translation string: erzeuge Klon von %1
@@ -26,8 +40,8 @@ class Figur():
         -------
 
         """
-        return self._core.control_create_clone_of(sprite)
-                
+        return self._core.control_create_clone_of_sprite(sprite)
+
     def lösche_diesen_klon(self):
         """lösche diesen Klon
 
@@ -993,8 +1007,41 @@ class Figur():
         -------
 
         """
-        return self._core.looks_switchbackdropto(backdrop)
+        return self._core.looks_switchbackdropto_backdrop(backdrop)
                 
+    def wechsle_zu_zufälligem_bühnenbild(self):
+        """wechsle zu zufälligem Bühnenbild
+
+        Translation string: wechsle zu zufäBühnenbild
+        Engl. Translation for your reference: ...
+        Engl. Documentation when available...
+
+        
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_random()
+
+    def wechsle_zum_vorherigen_bühnenbild(self):
+        """wechsle zum vorherigen Bühnenbild
+
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_previous()
+
+    def wechsle_zum_nächsten_bühnenbild(self):
+        """wechsle zum nachfolgenden Bühnenbild
+
+
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_next()
+
     def wechsle_zu_kostüm(self, costume):
         """wechsle zu Kostüm %1
 

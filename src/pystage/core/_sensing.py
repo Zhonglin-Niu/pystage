@@ -2,7 +2,8 @@ import pygame
 import pystage
 from pystage.core.constants import KEY_MAPPINGS
 from pystage.core._base_sprite import BaseSprite
-
+from math import sqrt
+import datetime
 
 
 class _Sensing(BaseSprite):
@@ -33,7 +34,8 @@ class _Sensing(BaseSprite):
 
     def sensing_loudness(self):
         # See events area, not sure if we support microphone access
-        pass
+        # This could be useful: https://python-sounddevice.readthedocs.io/en/0.4.7/index.html
+        print("Microphone access is currently not supported. See https://github.com/pystage/pystage/issues/116")
 
     def sensing_timer(self):
         return self.stage.timer
@@ -43,14 +45,14 @@ class _Sensing(BaseSprite):
 
 
     def sensing_setdragmode_draggable(self):
-        pass
+        self.draggable = True
     sensing_setdragmode_draggable.opcode="sensing_setdragmode"
     sensing_setdragmode_draggable.param="DRAG_MODE"
     sensing_setdragmode_draggable.value="draggable"
 
 
     def sensing_setdragmode_notdraggable(self):
-        pass
+        self.draggable = False
     sensing_setdragmode_notdraggable.opcode="sensing_setdragmode"
     sensing_setdragmode_notdraggable.param="DRAG_MODE"
     sensing_setdragmode_notdraggable.value="not draggable"
@@ -130,56 +132,68 @@ class _Sensing(BaseSprite):
     sensing_of_backdropname.value="backdrop name"
 
     def sensing_current_year(self):
-        pass
+        return datetime.datetime.now().year
     sensing_current_year.opcode="sensing_current"
     sensing_current_year.param="CURRENTMENU"
     sensing_current_year.value="YEAR"
 
 
     def sensing_current_month(self):
-        pass
+        return datetime.datetime.now().month
     sensing_current_month.opcode="sensing_current"
     sensing_current_month.param="CURRENTMENU"
     sensing_current_month.value="MONTH"
 
 
     def sensing_current_date(self):
-        pass
+        return datetime.datetime.now().day
     sensing_current_date.opcode="sensing_current"
     sensing_current_date.param="CURRENTMENU"
     sensing_current_date.value="DATE"
 
 
     def sensing_current_dayofweek(self):
-        pass
+        current_datetime = datetime.datetime.now().date()
+        #This leads to a Sunday=1 based counting
+        day_of_week = (current_datetime.isoweekday() % 7) + 1
+        return day_of_week
     sensing_current_dayofweek.opcode="sensing_current"
     sensing_current_dayofweek.param="CURRENTMENU"
     sensing_current_dayofweek.value="DAYOFWEEK"
 
 
     def sensing_current_hour(self):
-        pass
+        return datetime.datetime.now().hour
     sensing_current_hour.opcode="sensing_current"
     sensing_current_hour.param="CURRENTMENU"
     sensing_current_hour.value="HOUR"
 
 
     def sensing_current_minute(self):
-        pass
+        return datetime.datetime.now().minute
     sensing_current_minute.opcode="sensing_current"
     sensing_current_minute.param="CURRENTMENU"
     sensing_current_minute.value="MINUTE"
 
 
     def sensing_current_second(self):
-        pass
+        return datetime.datetime.now().second
     sensing_current_second.opcode="sensing_current"
     sensing_current_second.param="CURRENTMENU"
     sensing_current_second.value="SECOND"
 
 
     def sensing_dayssince2000(self):
-        pass
+        # use datetime to find days since 2000 in timezone
+        start_date = datetime.datetime(2000, 1, 1, tzinfo=datetime.timezone.utc)
+        current_datetime = datetime.datetime.now(datetime.timezone.utc)
+        time_difference = current_datetime - start_date
+        days = time_difference.days
+        # find fraction of current day like in Scratch
+        decimal_in_day_string = (current_datetime.hour * 3600 + current_datetime.minute * 60 + current_datetime.second) / (24 * 3600)
+        # put full days and part of day together
+        since_2000 = days + decimal_in_day_string
+        return since_2000
 
     def sensing_username(self):
         # Makes not a lot of sense, maybe for compatibility?
@@ -190,7 +204,15 @@ class _SensingSprite(BaseSprite):
         super().__init__()
 
     def sensing_touchingobject_pointer(self):
-        pass
+        pos = pygame.mouse.get_pos()
+        if self.rect.collidepoint(pos):
+            x = pos[0] - self.rect.left
+            y = pos[1] - self.rect.top
+            color = self.image.get_at((x, y))
+            if color.a != 0:
+                return True
+        return False
+
     sensing_touchingobject_pointer.opcode="sensing_touchingobject"
     sensing_touchingobject_pointer.param="TOUCHINGOBJECTMENU"
     sensing_touchingobject_pointer.value="_mouse_"
@@ -203,6 +225,7 @@ class _SensingSprite(BaseSprite):
     sensing_touchingobject_edge.value="_edge_"
 
     def sensing_touchingobject_sprite(self, sprite):
+        sprite = sprite._core
         if sprite.rect.colliderect(self.rect):
             offset = (self.rect.left - sprite.rect.left, self.rect.top - sprite.rect.top)
             return sprite.mask.overlap(self.mask, offset) is not None
@@ -217,13 +240,21 @@ class _SensingSprite(BaseSprite):
         pass
 
     def sensing_distanceto_pointer(self):
-        pass
+        mx, my = pygame.mouse.get_pos()
+        # gets position of sprite
+        sprite_rect = self.rect
+        # Calculate the distance between the sprite and the mouse pointer
+        distance = sqrt((sprite_rect.centerx - mx)**2 + (sprite_rect.centery - my)**2)
+        return distance
+        
     sensing_distanceto_pointer.opcode="sensing_distanceto"
     sensing_distanceto_pointer.param="DISTANCETOMENU"
     sensing_distanceto_pointer.value="_mouse_"
 
     def sensing_distanceto_sprite(self, sprite):
-        pass
+        # self is an instance of CoreSprite
+        # sprite is an instance of Sprite
+        return self._pos.distance_to(sprite._core._pos)
     sensing_distanceto_sprite.opcode="sensing_distanceto"
 
 

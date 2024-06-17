@@ -73,6 +73,15 @@ And here is the result:
 # Installation
 ```pip install pystage```
 
+**if doesn't work, try following commands one by one.**
+```bash
+pip install wheel
+pip install pygame==2.3.0
+pip install svglib==1.1.0
+pip install reportlab==3.5.67
+pip install pystage
+```
+
 # Getting started
 
 If you are interested in PyStage and want to get in touch, feel free to join us on our [Discord Server](https://discord.gg/MSGrs3UCCz).
@@ -111,6 +120,13 @@ Please note this is a pre alpha version. Not all things may work as expected. If
 ---
 
 # Import your Scratch projects
+
+## Use our Web converter
+1. Publish your Scratch project **or** download your Scratch project as .sb3 file.
+2. Go to https://convert.pystage.org and convert your project.
+3. Download the resulting zip file, it contains your new Python project ready to run.
+
+## Convert on your computer
 Converting a Scratch project to Python code:
 1. Export your Scratch project on the Scratch page. You will get an .sb3 file.
 2. Use our command line converter. Yes, it's unhandy, we will work on it to make things easier.

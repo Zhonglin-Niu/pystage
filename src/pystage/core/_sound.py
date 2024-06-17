@@ -25,6 +25,9 @@ class _Sound(BaseSprite):
 
     def sound_play(self, name, loop=0):
         channel = self.mixer.find_channel()
+        if channel == None:
+            print(f"WARNING: No more free sound channels. Can't play '{name}'.")
+            return
         sound = self.sound_manager.get_sound(name)
         if sound is not None:
             channel.play(sound, loop)

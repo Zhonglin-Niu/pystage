@@ -23,6 +23,7 @@ class _Motion(_Sensing):
         # Position is stored internally as PyGame coordinates
         # and refers to the center of the costume.
         self._pos = pygame.Vector2(0, 0)
+        self.draggable = False
         self.motion_setx(0)
         self.motion_sety(0)
 
@@ -61,7 +62,7 @@ class _Motion(_Sensing):
 
 
     def motion_goto_sprite(self, sprite):
-        self.motion_gotoxy(sprite.x, sprite.y)
+        self.motion_gotoxy(sprite.x_position(), sprite.y_position())
 
     motion_goto_sprite.opcode = "motion_goto"
 

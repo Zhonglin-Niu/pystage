@@ -10,7 +10,7 @@ templates = {
         "event_whenflagclicked": '''\
                 
                 def {{func}}_{{ID}}(self):
-                    {{NEXT | indent(4) }}
+                    {{NEXT | indent(4)}}
 
                 {{CURRENT_SPRITE}}.{{func}}({{func}}_{{ID}})
 
@@ -42,7 +42,21 @@ templates = {
                 {{CURRENT_SPRITE}}.{{func}}({{func}}_{{ID}})
                 
                 ''',
+
+        "event_whengreaterthan": '''\
+                def {{func}}_{{ID}}(self):
+                    {{NEXT | indent(4)}}
+                {{CURRENT_SPRITE}}.{{func}}({{VALUE}}, {{func}}_{{ID}})
                 
+                ''',
+
+        "event_whenbackdropswitchesto": '''\
+                def {{func}}_{{ID}}(self):
+                    {{NEXT | indent(4)}}
+                {{CURRENT_SPRITE}}.{{func}}({{BACKDROP | global_backdrop}}, {{func}}_{{ID}})
+                
+                ''',
+
         "control_start_as_clone": '''\
 
                 def {{func}}_{{ID}}(self):
@@ -106,7 +120,11 @@ templates = {
         "sound_sounds_menu": "{{SOUND_MENU | global_sound }}",
 
         "sensing_keyoptions": "{{KEY_OPTION}}",
-
+        "sensing_distancetomenu": "{{DISTANCETOMENU | global_sprite}}",
+        "sensing_touchingobjectmenu": "{{TOUCHINGOBJECTMENU | global_sprite}}",
+        "control_create_clone_of_menu": "{{CLONE_OPTION | global_sprite }}",
+        "sensing_of_object_menu": "{{OBJECT | global_sprite }}",
+        "motion_pointtowards_menu": "{{TOWARDS | global_sprite }}",
                 }
 
 

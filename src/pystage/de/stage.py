@@ -17,7 +17,7 @@ class Bühne():
         self._core.pystage_play()
         
             
-    def erzeuge_klon_von(self, sprite='_myself_'):
+    def erzeuge_klon_von_sprite(self, sprite='_myself_'):
         """erzeuge Klon von %1
 
         Translation string: erzeuge Klon von %1
@@ -34,7 +34,7 @@ class Bühne():
         -------
 
         """
-        return self._core.control_create_clone_of(sprite)
+        return self._core.control_create_clone_of_sprite(sprite)
                 
     def stoppe_alles(self):
         """stoppe alles
@@ -730,7 +730,39 @@ class Bühne():
         -------
 
         """
-        return self._core.looks_switchbackdropto(backdrop)
+        return self._core.looks_switchbackdropto_backdrop(backdrop)
+                
+    def wechsle_zu_zufälligem_bühnenbild(self):
+        """wechsle zu zufälligem Bühnenbild
+
+        Translation string: wechsle zu zufäBühnenbild
+        Engl. Translation for your reference: ...
+        Engl. Documentation when available...
+
+        
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_random()
+
+    def wechsle_zum_vorherigen_bühnenbild(self):
+        """wechsle zum vorherigen Bühnenbild
+
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_previous()
+
+    def wechsle_zum_nächsten_bühnenbild(self):
+        """wechsle zum nachfolgenden Bühnenbild
+
+        Returns
+        -------
+
+        """
+        return self._core.looks_switchbackdropto_next()
                 
     def wechsle_zu_bühnenbild_und_warte(self, backdrop):
         """wechsle zu Bühnenbild %1 und warte

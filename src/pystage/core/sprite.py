@@ -31,6 +31,8 @@ class CoreSprite(_Motion, _Events, _LooksSprite, _Sound, _Sensing, _SensingSprit
             self.name = "Sprite"
         # The facade is the translated API
         self.facade = None
+        # Make sure that the core sprite can always be accessed via _core
+        self._core = self
 
 
     def pystage_setname(self, name):
@@ -41,7 +43,6 @@ class CoreSprite(_Motion, _Events, _LooksSprite, _Sound, _Sensing, _SensingSprit
         self.code_manager._update(dt)
         self.costume_manager.update_sprite_image()
         self._update_pen()
-
 
     def __str__(self):
         return self.name

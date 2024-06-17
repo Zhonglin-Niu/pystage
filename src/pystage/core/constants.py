@@ -42,6 +42,10 @@ KEY_MAPPINGS = {
         "right": pygame.K_RIGHT,
         "up": pygame.K_UP,
         "down": pygame.K_DOWN,
+        "left arrow": pygame.K_LEFT,
+        "right arrow": pygame.K_RIGHT,
+        "up arrow": pygame.K_UP,
+        "down arrow": pygame.K_DOWN,
         "space": pygame.K_SPACE,
         " ": pygame.K_SPACE,
         }

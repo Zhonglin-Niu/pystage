@@ -48,7 +48,8 @@ class _Events(BaseSprite):
 
     def event_whengreaterthan_loudness(self, value, generator_function, name="", no_refresh=False):
         # Not sure if this can/should be implemented, requires microphone access.
-        pass
+        # See sensing for more information.
+        print("Microphone access is currently not supported. See https://github.com/pystage/pystage/issues/116")
     event_whengreaterthan_loudness.opcode="event_whengreaterthan"
     event_whengreaterthan_loudness.param="WHENGREATERTHANMENU"
     event_whengreaterthan_loudness.value="LOUDNESS"

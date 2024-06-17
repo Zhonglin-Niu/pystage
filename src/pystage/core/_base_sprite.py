@@ -13,3 +13,5 @@ class BaseSprite(pygame.sprite.Sprite):
         self.stage = self.stage if hasattr(self, "stage") else None
         self.code_manager = CodeManager(self)
         self.costume_manager = CostumeManager(self)
+        self.is_clone = False
+        self._core = self

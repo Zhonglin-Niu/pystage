@@ -63,6 +63,7 @@ class CodeWriter():
         self.jinja_environment.filters["global_sound"] = lambda name: self.global_sound(name)
         self.jinja_environment.filters["global_costume"] = lambda name: self.global_costume(name)
         self.jinja_environment.filters["global_backdrop"] = lambda name: self.global_backdrop(name)
+        self.jinja_environment.filters["global_sprite"] = lambda name: self.get_sprite_var(unquoted(name))
         
         logger.debug("CodeWriter created.")
 
@@ -232,6 +233,8 @@ class CodeWriter():
             if costume["local_name"] == name:
                 q = '"' if quoted else ''
                 return f'{q}{self.project["costumes"][costume["md5"]]["global_name"]}{q}'
+        if name in ["next backdrop", "random backdrop", "previous backdrop"]:
+            return f'"{name}"'
         raise ValueError(f"No backdrop with name '{name}' found for stage.")
 
 
@@ -269,6 +272,19 @@ class CodeWriter():
         context["CURRENT_SPRITE"] = self.get_sprite_var()
         if "{{ID}}" in text:
             context["ID"] = self.get_id()
+
+        # if {{NEXT | indent (4)}} is still in text, but there is no
+        # NEXT in context, then it means the Scratch “hat” block is empty,
+        # so set NEXT to "pass", so the function is essentially empty.
+        if "indent(4)" in text:
+            if "NEXT" in text and not context.get("NEXT"):
+                context["NEXT"] = "pass"
+            if "SUBSTACK" in text and not context.get("SUBSTACK"):
+                context["SUBSTACK"] = "pass"
+            if "SUBSTACK2" in text and not context.get("SUBSTACK2"):
+                context["SUBSTACK2"] = "pass"
+        if "{{CONDITION}}" in text and not context.get("CONDITION"):
+            context["CONDITION"] = "None"
         template = self.jinja_environment.from_string(text)
         try:
             text = template.render(context)
